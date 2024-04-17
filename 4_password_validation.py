@@ -1,3 +1,10 @@
+""" Password Validation Function (validate_password):
+Password Criteria:
+Check if the password meets certain criteria such as length, presence of lowercase and uppercase letters, digits, and specific symbols.
+
+Validation Process:
+Use regular expressions to check if the password satisfies each criterion.
+Return a boolean indicating whether the password is valid and a corresponding message. """
 import re
 
 def validate_password(password):
