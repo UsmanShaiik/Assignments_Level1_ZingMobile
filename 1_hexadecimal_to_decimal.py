@@ -1,3 +1,11 @@
+""" Hexadecimal to Decimal Conversion Function (hexadecimal_to_decimal):
+Input Validation:
+Check if the input provided is a valid hexadecimal number.
+
+Conversion Process:
+Convert the hexadecimal number to its decimal representation.
+Use a for loop to iterate over each digit of the hexadecimal number and calculate its decimal equivalent.
+Output the decimal representation. """
 def hexadecimal_to_decimal(hexadecimal):
     hexadecimal = hexadecimal.upper()
     hex_chars = "0123456789ABCDEF"
