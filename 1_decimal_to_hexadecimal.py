@@ -1,3 +1,11 @@
+"""  Decimal to Hexadecimal Conversion Function (decimal_to_hexadecimal):
+Input Validation:
+Check if the input provided is a valid decimal number.
+
+Conversion Process:
+Convert the decimal number to its hexadecimal representation.
+Use a while loop to repeatedly divide the decimal number by 16 and append the remainder to build the hexadecimal representation.
+Output the hexadecimal representation. """
 def decimal_to_hexadecimal(decimal_num):
     if not decimal_num.isdigit():
         print("Invalid input: Please enter a decimal number.")
