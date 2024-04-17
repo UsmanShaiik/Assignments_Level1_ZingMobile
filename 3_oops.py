@@ -1,3 +1,13 @@
+""" Class Definition (Person):
+Initialization:
+
+Initialize the attributes name, age, and mobile to store personal details.
+Setting Values:
+
+Define a method set_values to allow the user to input personal details.
+Printing Values:
+
+Define a method print_values to print the stored personal details. """
 class Person:
     def __init__(self):
         self.name = ""
