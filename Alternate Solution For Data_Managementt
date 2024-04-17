@@ -1,0 +1,110 @@
+//Server3.js:-
+var express = require('express'); // require the express framework
+var app = express();
+var mysql = require('mysql'); // require the mysql module
+
+// Create a connection to the MySQL database
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'your_database_user',
+    password: 'your_database_password',
+    database: 'your_database_name'
+});
+
+// Connect to the database
+connection.connect(function(err) {
+    if (err) {
+        console.error('Error connecting to database: ' + err.stack);
+        return;
+    }
+    console.log('Connected to database as id ' + connection.threadId);
+});
+
+// Endpoint to Get a list of users
+app.get('/getUsers', function(req, res){
+    connection.query('SELECT * FROM users', function (error, results, fields) {
+        if (error) throw error;
+        console.log('Fetched users from database: ', results);
+        res.json(results);
+    });
+});
+
+// Create a server to listen at port 8080
+var server = app.listen(8080, function(){
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log("REST API demo app listening at http://%s:%s", host, port);
+});
+
+
+//Users.json:-
+{
+    "user1": {
+      "id":1,
+      "name":"Peter",
+      "section":"A",
+      "subject_marks": {"math": 85, "science": 90, "history": 75}
+    },
+  
+    "user2": {
+      "id":1,
+      "name":"parker",
+      "section":"B",
+      "subject_marks": {"math": 35, "science": 80, "history": 65}
+    },
+  
+  
+    "user3": {
+      "id":1,
+      "name":"Watson",
+      "section":"B",
+      "subject_marks": {"math": 76, "science": 70, "history": 85}
+    },
+  
+  
+    "user4": {
+      "id":1,
+      "name":"Munonye",
+      "section":"A",
+      "subject_marks": {"math": 80, "science": 60, "history": 95}
+    },
+  
+    "user5": {
+      "id":1,
+      "name":"dube",
+      "section":"A",
+      "subject_marks": {"math": 89, "science": 69, "history": 98}
+    }
+  
+  }
+
+  //database:-
+  Step 1: CREATE DATABASE school;
+
+Step 2: Create a Table
+
+
+Step 3: USE school;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    section VARCHAR(10),
+    math INT,
+    science INT,
+    history INT
+);
+
+
+Step 4:Insert Data
+INSERT INTO students (name, section, math, science, history) VALUES
+('Peter', 'A', 85, 90, 75),
+('parker', 'B', 35, 80, 65),
+('Watson', 'B', 76, 70, 85),
+('Munonye', 'A', 80, 60, 95),
+('dube', 'A', 89, 69, 98);
+
+Step 5: Verify Data:
+SELECT * FROM students;
+This query will retrieve all the records from the students table.
+
